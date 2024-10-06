@@ -1,0 +1,79 @@
+.panel iframe {
+  border: none;
+}
+
+body {
+  margin: 0;
+}
+
+.top-panel {
+  background-color: rgb(82, 78, 78);
+  color: aliceblue;
+  height: 50vh;
+  /* Ensure consistent height for the editor panel */
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.panel {
+  height: 50vh;
+  /* Bottom panel is the other 50% */
+  display: flex;
+  flex-grow: 1;
+}
+
+.editorContainer {
+  flex-grow: 1;
+  flex-basis: 0.2;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  min-height: 100%;
+  max-height: fit-content;
+  overflow: hidden;
+  /* Disable overflow scroll on the container */
+}
+
+.collapsed {
+  flex-grow: 0.1;
+}
+
+.collapsed .CodeMirror-scroll {
+  position: absolute;
+  overflow: hidden !important;
+}
+
+.editorTitle {
+  background-color: rgb(46, 46, 46);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  flex-shrink: 0;
+}
+
+.CodeMirror {
+  height: 100% !important;
+  /* Ensure CodeMirror takes full height */
+  overflow: auto;
+  /* Let CodeMirror handle scroll */
+  box-sizing: border-box;
+}
+
+.code-mirror-wrapper {
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  /* Hide any additional scrollbars here */
+}
+
+.expand-collapse-button {
+  margin-left: 0.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
