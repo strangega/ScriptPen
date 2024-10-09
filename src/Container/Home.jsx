@@ -3,7 +3,7 @@ import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { TbHomeFilled } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { RiSearch2Line } from "react-icons/ri";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { SignUp, Projects } from "../Container";
 import { useDispatch, useSelector } from "react-redux";
 import { UserDetails } from "../components";
@@ -15,6 +15,15 @@ const Home = () => {
     state.searchTerm?.searchTerm ? state.searchTerm?.searchTerm : ""
   );
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleStartCodingClick = () => {
+    if (user) {
+      navigate("/newProject");
+    } else {
+      alert("Login to use the editor");
+    }
+  };
   return (
     <>
       <div
@@ -41,29 +50,19 @@ const Home = () => {
             </div>
           </Link>
           {/* start coding */}
-          <Link
-            to={{
-              pathname: "/newProject",
-              state: {
-                project: {
-                  html: "",
-                  css: "",
-                  js: "",
-                  title: "Untitled",
-                },
-              },
-            }}
-            className="group "
+          <div
+            onClick={handleStartCodingClick} // Call the function on click
+            className="group cursor-pointer"
           >
-            <div
+            <motion.div
               whileTap={{ scale: 0.96 }}
-              className="px-4 py-3 my-2 flex items-center justify-center rounded-xl border  border-gray-400 cursor-pointer group-hover:border-gray-100 "
+              className="px-4 py-3 my-2 flex items-center justify-center rounded-xl border border-gray-400 cursor-pointer group-hover:border-gray-100"
             >
-              <p className=" text-gray-400 group-hover:text-gray-200 capitalize">
+              <p className="text-gray-400 group-hover:text-gray-200 capitalize">
                 Start Coding
               </p>
-            </div>
-          </Link>
+            </motion.div>
+          </div>
           {/* home */}
           {user && (
             <Link
