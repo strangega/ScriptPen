@@ -31,7 +31,7 @@ const App = () => {
           navigate("/home/projects", { replace: true });
         });
       } else {
-        navigate("/home/auth", { replace: true });
+        navigate("/home", { replace: true });
       }
       setInterval(() => {
         setIsLoading(false);
