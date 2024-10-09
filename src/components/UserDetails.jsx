@@ -6,7 +6,7 @@ import { Menus, signOutAction } from "../utils/helper";
 import { Link } from "react-router-dom";
 import { slideDown } from "../animations";
 
-const userDetails = () => {
+const UserDetails = () => {
   const user = useSelector((state) => state.user?.user);
   const [isMenu, setIsMenu] = useState(false);
   return (
@@ -64,4 +64,4 @@ const userDetails = () => {
   );
 };
 
-export default userDetails;
+export default UserDetails;
